@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tool - {{tool}}</title>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css">
+</head>
+<body>
+
+<div id="main" style="width: 100%; height: 400px;"></div>
+
+<script type="module">
+import { w2layout, w2sidebar, w2grid, w2ui, query  } from 'https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.es6.min.js'
+import tool from '/main.js'
+
+// register app globally
+window.app = { w2ui }
+
+let layout = new w2layout(tool.layout)
+let sidebar = new w2sidebar(tool.sidebar)
+let grid1 = new w2grid(tool.grid1)
+let grid2 = new w2grid(tool.grid2)
+
+layout.render(query('#main')[0])
+layout.html('left', sidebar)
+layout.html('main', grid1)
+</script>
+
+</body>
+</html>
